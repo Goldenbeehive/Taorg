@@ -6,11 +6,11 @@ Taorg can:
 
  * Create tasks: Add new tasks to your to-do list with just a few taps.
 
- * Set due dates: Set a due date for each task to help you stay on track.
+ * Set time windows: Set a time window for each task to help you stay on track.
 
  * Mark tasks as complete: When you finish a task, mark it as complete to keep your list up-to-date.
 
- * Edit and delete tasks: Need to make changes to a task? No problem. You can easily edit or delete tasks as needed.
+ * Edit and delete tasks: Need to make changes to a task? No problem. You can easily edit or delete tasks as needed.(name editing in progress).
 
   * Dark mode(in progress): Taorg includes a dark mode option, so you can use the app comfortably in low-light environments.
 
