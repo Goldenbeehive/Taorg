@@ -20,18 +20,20 @@ class _MainScreenState extends State<MainScreen> {
       case 0:
         return Scaffold(
             body:
-                Stack(children: [HomeScreen(name: widget.name), bottomMenu()]));
+                SafeArea(child: Stack(children: [HomeScreen(name: widget.name), bottomMenu()])));
       case 1:
         return Scaffold(
-            body: Column(
-                children: [const TasksByDateScreen(), bottomMenuForScreen2()]));
+            body: SafeArea(
+              child: Column(
+                  children: [const TasksByDateScreen(), bottomMenuForScreen2()]),
+            ));
       case 2:
         return Scaffold(
-            body: Stack(children: [const SettingsScreen(), bottomMenu()]));
+            body: SafeArea(child: Stack(children: [const SettingsScreen(), bottomMenu()])));
       default:
         return Scaffold(
             body:
-                Stack(children: [HomeScreen(name: widget.name), bottomMenu()]));
+                SafeArea(child: Stack(children: [HomeScreen(name: widget.name), bottomMenu()])));
     }
   }
 

@@ -110,37 +110,43 @@ class _TaskListState extends State<TaskList> {
         borderRadius: BorderRadius.circular(10),
         onTap: () {
           showModalBottomSheet(
+            isScrollControlled: true,
             context: context,
             builder: (_) {
-              return SizedBox(
-                  height: 350,
-                  child: Column(children: [
-                    const SizedBox(
-                      width: 100,
-                      child: Divider(
-                        thickness: 2.0,
-                        color: Colors.black,
+              return Padding(
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom,
+                ),
+                child: SizedBox(
+                    height: 350,
+                    child: Column(children: [
+                      const SizedBox(
+                        width: 100,
+                        child: Divider(
+                          thickness: 2.0,
+                          color: Colors.black,
+                        ),
                       ),
-                    ),
-                    const Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 13.0),
-                        child: Text(
-                          'New Task',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 13.0),
+                          child: Text(
+                            'New Task',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    ChangeNotifierProvider(
-                        create: (context) => TaskProv(),
-                        child: TaskForm(
-                          update: update,
-                        ))
-                  ]));
+                      ChangeNotifierProvider(
+                          create: (context) => TaskProv(),
+                          child: TaskForm(
+                            update: update,
+                          ))
+                    ])),
+              );
             },
           );
         },

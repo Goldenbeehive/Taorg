@@ -6,16 +6,18 @@ final String text;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(Icons.arrow_back)),
-              Center(child: Text(text,textAlign: TextAlign.center,style: const TextStyle(fontSize: 30,),),)
-        ],
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.arrow_back)),
+                Center(child: Text(text,textAlign: TextAlign.center,style: const TextStyle(fontSize: 30,),),)
+          ],
+        ),
       ),
     );
   }

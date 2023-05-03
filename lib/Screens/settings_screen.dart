@@ -14,7 +14,6 @@ class SettingsScreen extends StatelessWidget {
         Row(
           children: const [
             Icon(Icons.settings),
-            
             Padding(
               padding: EdgeInsets.only(left: 10.0),
               child: Text(
@@ -33,47 +32,61 @@ class SettingsScreen extends StatelessWidget {
           child: InkWell(
             onTap: () {
               showModalBottomSheet(
+                  isScrollControlled: true,
                   context: context,
                   builder: (_) {
-                    return SizedBox(
-                      height: 350,
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            width: 100,
-                            child: Divider(
-                              thickness: 2.0,
-                              color: Colors.black,
+                    return Padding(
+                      padding: EdgeInsets.only(
+                        bottom: MediaQuery.of(context).viewInsets.bottom,
+                      ),
+                      child: SizedBox(
+                        height: 350,
+                        child: Column(
+                          children: [
+                            const SizedBox(
+                              width: 100,
+                              child: Divider(
+                                thickness: 2.0,
+                                color: Colors.black,
+                              ),
                             ),
-                          ),
-                          const Align(
-                            alignment: Alignment.centerLeft,
-                            child: Padding(
-                              padding: EdgeInsets.only(left: 13.0),
-                              child: Text(
-                                'New Name',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25,
+                            const Align(
+                              alignment: Alignment.centerLeft,
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 13.0),
+                                child: Text(
+                                  'New Name',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          ChangeNotifierProvider(
-                            create: (context) => Name(),
-                            child: const NameForm(),
-                          ),
-                        ],
+                            ChangeNotifierProvider(
+                              create: (context) => Name(),
+                              child: const NameForm(),
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   });
             },
-            child: Text(
-              "Change Name",
-              style: TextStyle(
-                fontSize: 23,
-                color: Colors.black.withOpacity(0.8),
-                fontWeight: FontWeight.w300,
+            child: Container(
+              decoration: const BoxDecoration(
+                border: Border(
+                  top: BorderSide(width: 1.0, color: Colors.black),
+                  bottom: BorderSide(width: 1.0, color: Colors.black),
+                ),
+              ),
+              child: Text(
+                "Change Name",
+                style: TextStyle(
+                  fontSize: 23,
+                  color: Colors.black.withOpacity(0.8),
+                  fontWeight: FontWeight.w300,
+                ),
               ),
             ),
           ),

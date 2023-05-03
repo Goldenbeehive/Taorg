@@ -97,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemBuilder: (context, index) {
                       if (index == list.length) {
                         return Padding(
-                          padding: const EdgeInsets.only(bottom:1.0,top: 1.0),
+                          padding: const EdgeInsets.only(bottom: 1.0, top: 1.0),
                           child: addProj(),
                         );
                       }
@@ -242,39 +242,45 @@ class _HomeScreenState extends State<HomeScreen> {
         borderRadius: BorderRadius.circular(10),
         onTap: () {
           showModalBottomSheet(
+              isScrollControlled: true,
               context: context,
               builder: (_) {
-                return SizedBox(
-                    height: 200,
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          width: 100,
-                          child: Divider(
-                            thickness: 2.0,
-                            color: Colors.black,
+                return Padding(
+                  padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).viewInsets.bottom,
+                  ),
+                  child: SizedBox(
+                      height: 200,
+                      child: Column(
+                        children: [
+                          const SizedBox(
+                            width: 100,
+                            child: Divider(
+                              thickness: 2.0,
+                              color: Colors.black,
+                            ),
                           ),
-                        ),
-                        const Align(
-                          alignment: Alignment.centerLeft,
-                          child: Padding(
-                            padding: EdgeInsets.only(left: 13.0),
-                            child: Text(
-                              'Project Data',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 25,
+                          const Align(
+                            alignment: Alignment.centerLeft,
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 13.0),
+                              child: Text(
+                                'Project Data',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        ChangeNotifierProvider(
-                            create: (context) => Projects(),
-                            child: ProjForm(
-                              update: bottomsheetUpdate,
-                            ))
-                      ],
-                    ));
+                          ChangeNotifierProvider(
+                              create: (context) => Projects(),
+                              child: ProjForm(
+                                update: bottomsheetUpdate,
+                              ))
+                        ],
+                      )),
+                );
               });
         },
         child: DottedBorder(

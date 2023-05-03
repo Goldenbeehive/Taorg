@@ -70,10 +70,12 @@ class NameScreen extends StatelessWidget {
             ),
             ElevatedButton(
                 onPressed: () async{
+                  if(nameController.text.isEmpty){  
+                    return;
+                  }
                   final nav = Navigator.of(context);
                   await context.read<Name>().addName(nameController.text);
                   nav.pushAndRemoveUntil(
-                  
                     MaterialPageRoute(
                         builder: (context) => MultiProvider(
                               providers: [
